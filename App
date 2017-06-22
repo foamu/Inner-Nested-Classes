@@ -1,0 +1,16 @@
+public class App {
+	
+	public static void main(String[] args) {
+		
+		Ship ship1 = new Ship("Whopper");
+		
+		ship1.engage();
+		
+		// Typical Java syntax, using
+        // a static inner class.
+		Ship.Fuel fuel = new Ship.Fuel();
+		
+		fuel.fuelUp();
+	}
+
+}
