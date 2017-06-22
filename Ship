@@ -1,0 +1,46 @@
+public class Ship {
+
+	private String name;
+
+	public Ship(String name) {
+		this.name = name;
+	}
+	
+	// Non-static inner classes have access to the enclosing
+    // class's instance data. Use them to group functionality.
+	private class Engine {
+		public void fireUp() {
+			System.out.println("The ship " + name + " has fired up its engines.");
+		}
+	}
+
+	// static inner classes do not have access to instance data.
+	// They are really just like "normal" classes, except that they are grouped
+  // within an outer class. Use them for grouping classes together.
+	public static class Fuel {
+		public void fuelUp() {
+			System.out.println("Refueling da engine, mon.");
+
+		}
+	}
+
+	public void engage() {
+		Engine engines = new Engine();
+		engines.fireUp();
+
+		final int id = 5;
+
+		// Sometimes it's useful to create local classes
+		// within methods. You can use them only within the method.
+		
+		class Temp {
+			public void doStuff() {
+				System.out.println("Name of ship is " + name);
+				System.out.println("ID is: " + id);
+			}
+		}
+
+		Temp temp = new Temp();
+		temp.doStuff();
+	}
+}
